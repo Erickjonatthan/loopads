@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  
+  --color-slate-950: #0A0A0B;
+  --color-slate-900: #151518;
+  --color-slate-850: #1F1F23;
+  --color-slate-800: #27272A;
+  --color-slate-700: #3F3F46;
+  
+  --color-zinc-950: #0A0A0B;
+  --color-zinc-900: #151518;
+  --color-zinc-850: #1F1F23;
+  --color-zinc-800: #27272A;
+  --color-zinc-700: #3F3F46;
+  
+  --color-emerald-500: #10B981;
+  --color-emerald-400: #34D399;
+}
+
+/* Custom layout classes and style overwrites to adhere with Elegant Dark Design */
+.dashboard-card {
+  background: #151518 !important;
+  border: 1px solid #27272A !important;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #A1A1AA 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.status-badge {
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 2px 8px !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.status-badge.pending {
+  background: rgba(245, 158, 11, 0.1) !important;
+  color: #F59E0B !important;
+  border: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
+.status-badge.approved {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #10B981 !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+body, html {
+  background-color: #0A0A0B !important;
+  color: #A1A1AA !important;
+}
+
+/* Custom border flow effect representing the glowing path on hover */
+@keyframes border-flow-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.border-flow-card {
+  position: relative !important;
+  background: #151518 !important;
+  border-radius: 1rem !important;
+  z-index: 1 !important;
+  overflow: hidden !important;
+  border: 1px solid #27272A !important;
+  transition: border-color 0.3s ease, transform 0.3s ease !important;
+}
+
+.border-flow-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -150% !important;
+  left: -150% !important;
+  width: 400% !important;
+  height: 400% !important;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 35%,
+    #10B981 45%,
+    #34D399 50%,
+    #10B981 55%,
+    transparent 65%,
+    transparent 100%
+  ) !important;
+  animation: border-flow-spin 5s linear infinite !important;
+  opacity: 0 !important;
+  transition: opacity 0.5s ease-in-out !important;
+  z-index: -2 !important;
+  pointer-events: none !important;
+}
+
+.border-flow-card:hover::before {
+  opacity: 1 !important;
+}
+
+.border-flow-card::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 1px !important;
+  background: #151518 !important;
+  border-radius: calc(1rem - 1px) !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.35);
+  border: 1px solid rgba(16, 185, 129, 0.6);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10B981;
+  border-color: #34D399;
+}
+
+/* Firefox scrollbar compatibility */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #10B981 #0A0A0B;
+}
+
+

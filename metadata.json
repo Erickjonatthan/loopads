@@ -1,0 +1,6 @@
+{
+  "name": "LoopAds Command Center",
+  "description": "Enterprise media orchestration, management, and real-time player controller with high-conversion landing page.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
